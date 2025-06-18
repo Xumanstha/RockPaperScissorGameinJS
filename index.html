@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissor</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 40vw;
+            margin: auto;
+            /* border: 1px solid black; */
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            /* padding: 30px 40px; */
+            /* max-width: 500px; */
+            /* width: 100%; */
+            text-align: center;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .GameplayArea {
+            display: flex;
+            justify-content: center;
+        }
+
+        .userHand {
+            width: 30%;
+            /* border: 1px solid black; */
+            font-size: 70px;
+            display: flex;
+            /* align-items: flex-end; */
+            justify-content: flex-end;
+            /* margin: 30px; */
+        }
+
+        .ComputerHand {
+            width: 30%;
+            height: 30vh;
+            display: flex;
+            justify-content: flex-start;
+            /* border: 1px solid black; */
+            font-size: 70px;
+        }
+
+        .ResultArea {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .choosingArea {
+            display: flex;
+            justify-content: center;
+            gap: 1vw;
+        }
+
+        .choosingArea button {
+            /* background-color: #00bcd4; */
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            font-size: 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .choosinArea button:active {
+            background-color: #e0f7fa;
+            border-color: #00bcd4;
+        }
+
+        #loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: auto;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🪨&nbsp Rock,&nbsp &nbsp 📄&nbsp Paper,&nbsp&nbsp✂️ &nbsp Scissor </h1>
+    <div class="main">
+        <div class="GameplayArea">
+            <div class=" userHand">
+                <div id="loader" style="display:none;"></div>
+                <p id="userHand"></p>
+            </div>
+            <h1 style="font-size: 5rem;">Vs.</h1>
+            <div class="ComputerHand">
+                <div id="loader" style="display:none;"></div>
+                <p id="ComputerHand"></p>
+            </div>
+        </div>
+        <div class="ResultArea">
+            <div>
+                <h2>Marks Of User</h2>
+                <p id="userMarks"></p>
+            </div>
+            <div>
+                <h2>Marks Of Computer</h2>
+                <p id="computerMarks"></p>
+            </div>
+        </div>
+        <h1 id="CommentArea"></h1>
+        <h2 style="text-align: center;">Choose One Among All of them:</h2>
+        <div class="choosingArea">
+            <button type="button" id="userChoice">🪨</button>
+            <button type="button" id="userChoice">📄</button>
+            <button type="button" id="userChoice">✂️</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
