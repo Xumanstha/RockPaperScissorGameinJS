@@ -96,6 +96,21 @@
                 transform: rotate(360deg);
             }
         }
+
+        footer {
+            display: flex;
+            justify-content: center;
+        }
+
+        .ResetBtn {
+            background-color: #00bcd4;
+            /* color: white; */
+            border: none;
+            /* padding: 12px 25px; */
+            font-size: 2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -131,6 +146,10 @@
             <button type="button" id="userChoice">✂️</button>
         </div>
     </div>
+    <footer>
+        <button class="ResetBtn" type="button" id="reset" onclick="Reset()">Reset</button>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 

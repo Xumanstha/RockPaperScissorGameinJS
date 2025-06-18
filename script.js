@@ -97,3 +97,12 @@ function checkWinner() {
         CommentArea.innerText = `Draw 🎉 🤝`;
     }
 }
+
+function Reset() {
+    computerScore = 0;
+    userScore = 0;
+    computerMarks.innerHTML = computerScore;
+    userMarks.innerHTML = userScore;
+    computerHand.innerHTML = "";
+    userHand.innerHTML = "";
+}
