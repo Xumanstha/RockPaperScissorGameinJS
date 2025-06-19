@@ -73,7 +73,7 @@ function checkWinner() {
     else if ((userHand.innerHTML === "🪨") && (computerHand.innerHTML === "📄")) {
         computerScore++;
         computerMarks.innerHTML = computerScore;
-        CommentArea.innerText = `User wins 🎉 🏆 `;
+        CommentArea.innerText = `Computer wins 🎉 🏆 `;
     }
     else if ((userHand.innerHTML === "🪨") && (computerHand.innerHTML === "🪨")) {
         userScore++;
