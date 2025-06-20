@@ -30,7 +30,7 @@ function GameStart() {
         computerHand.style.display = "block";
         userHand.style.display = "block";
         loader.forEach(load => { load.style.display = "none" });
-    }, 1000);
+    }, 500);
 
 }
 
