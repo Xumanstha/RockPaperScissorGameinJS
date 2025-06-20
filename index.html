@@ -2,87 +2,117 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissor</title>
     <style>
         * {
             box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 10px;
         }
 
         .main {
-            width: 40vw;
+            width: 90%;
+            max-width: 600px;
             margin: auto;
-            /* border: 1px solid black; */
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            /* padding: 30px 40px; */
-            /* max-width: 500px; */
-            /* width: 100%; */
+            padding: 20px;
             text-align: center;
         }
 
         h1 {
             text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
 
         .GameplayArea {
             display: flex;
             justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
         }
 
-        .userHand {
-            width: 30%;
-            /* border: 1px solid black; */
-            font-size: 70px;
-            display: flex;
-            /* align-items: flex-end; */
-            justify-content: flex-end;
-            /* margin: 30px; */
-        }
-
+        .userHand,
         .ComputerHand {
-            width: 30%;
-            height: 30vh;
+            width: 100px;
+            height: 100px;
+            font-size: 3rem;
             display: flex;
-            justify-content: flex-start;
-            /* border: 1px solid black; */
-            font-size: 70px;
+            justify-content: center;
+            align-items: center;
+            flex: 1 1 120px;
+        }
+
+        .GameplayArea h1 {
+            font-size: 2.5rem;
         }
 
         .ResultArea {
             display: flex;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .ResultArea>div {
+            flex: 1 1 45%;
+            background-color: #f1f1f1;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .ResultArea h2 {
+            font-size: 1rem;
+        }
+
+        .ResultArea p {
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         .choosingArea {
             display: flex;
             justify-content: center;
-            gap: 1vw;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
 
         .choosingArea button {
-            /* background-color: #00bcd4; */
             color: white;
+            background-color: #00bcd4;
             border: none;
-            padding: 12px 25px;
+            padding: 10px 20px;
             font-size: 2rem;
             border-radius: 5px;
             cursor: pointer;
+            transition: 0.3s;
         }
 
-        .choosinArea button:active {
-            background-color: #e0f7fa;
-            border-color: #00bcd4;
+        .choosingArea button:active {
+            background-color: #008fa1;
         }
 
         #loader {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid #3498db;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #3498db;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
+            width: 40px;
+            height: 40px;
             animation: spin 1s linear infinite;
             margin: auto;
         }
@@ -100,44 +130,83 @@
         footer {
             display: flex;
             justify-content: center;
+            margin-top: 20px;
         }
 
         .ResetBtn {
             background-color: #00bcd4;
-            /* color: white; */
+            color: white;
             border: none;
-            /* padding: 12px 25px; */
-            font-size: 2rem;
+            padding: 10px 30px;
+            font-size: 1.2rem;
             border-radius: 5px;
             cursor: pointer;
+        }
+
+        /* 🔻 Responsive Tweaks */
+        @media (max-width: 500px) {
+            .main {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1rem;
+            }
+
+            .GameplayArea>h1 {
+                font-size: 1rem;
+            }
+
+            .userHand,
+            .ComputerHand {
+                font-size: 2.2rem;
+                width: 80px;
+                height: 80px;
+            }
+
+            .choosingArea button {
+                font-size: 1.5rem;
+                padding: 8px 15px;
+            }
+
+            .ResetBtn {
+                font-size: 1rem;
+                padding: 8px 20px;
+            }
+
+            .ResultArea p {
+                font-size: 1.2rem;
+            }
         }
     </style>
 </head>
 
 <body>
-    <h1>🪨&nbsp Rock,&nbsp &nbsp 📄&nbsp Paper,&nbsp&nbsp✂️ &nbsp Scissor </h1>
+    <h1>🪨 Rock • 📄 Paper • ✂️ Scissor</h1>
     <div class="main">
         <div class="GameplayArea">
-            <div class=" userHand">
-                <div id="loader" style="display:none;"></div>
+            <div class="userHand">
+                <div id="loader" style="display: none;"></div>
                 <p id="userHand"></p>
             </div>
-            <h1 style="font-size: 5rem;">Vs.</h1>
+            <h1>Vs.</h1>
             <div class="ComputerHand">
-                <div id="loader" style="display:none;"></div>
+                <div id="loader" style="display: none;"></div>
                 <p id="ComputerHand"></p>
             </div>
         </div>
+
         <div class="ResultArea">
             <div>
                 <h2>Score Of User</h2>
-                <p style="font-size:larger; font-size: 800;" id="userMarks"></p>
+                <p style="font-size:larger; font-size: 800;" id="userMarks">0</p>
             </div>
             <div>
                 <h2>Score Of Computer</h2>
-                <p style="font-size:larger; font-size: 800;" id="computerMarks"></p>
+                <p style="font-size:larger; font-size: 800;" id="computerMarks">0</p>
             </div>
         </div>
+
         <h1 id="CommentArea"></h1>
         <h2 style="text-align: center;">Choose One Among All of them:</h2>
         <div class="choosingArea">
@@ -146,11 +215,21 @@
             <button type="button" id="userChoice">✂️</button>
         </div>
     </div>
+
     <footer>
         <button class="ResetBtn" type="button" id="reset" onclick="Reset()">Reset</button>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="script.js">
+        // Sample Reset function for testing
+        function Reset() {
+            document.getElementById('userMarks').textContent = '0';
+            document.getElementById('computerMarks').textContent = '0';
+            document.getElementById('userHand').textContent = '';
+            document.getElementById('ComputerHand').textContent = '';
+            document.getElementById('CommentArea').textContent = '';
+        }
+    </script>
 </body>
 
 </html>
